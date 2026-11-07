@@ -1,0 +1,4 @@
+(* created new ".tlacache/TwoPhaseProofs.tlaps/TwoPhaseProofs.thy" *)
+(* fingerprints written in ".tlacache/TwoPhaseProofs.tlaps/fingerprints" *)
+File "./TwoPhaseProofs.tla", line 1, character 1 to line 84, character 77:
+[INFO]: All 61 obligations proved.

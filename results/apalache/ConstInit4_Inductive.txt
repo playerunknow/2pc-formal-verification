@@ -1,0 +1,180 @@
+# Usage statistics is OFF. We care about your privacy.
+# If you want to help our project, consider enabling statistics with config --enable-stats=true.
+
+Output directory: /tmp/apalache-out-8_zbyuln/TwoPhase.tla/2026-11-07T22-32-56_12486140767488293545
+# APALACHE version: 0.50.3 | build: be35470                       I@22:32:56.260
+Tuning: search.outputTraces=false                                 I@22:32:56.281
+PASS #0: SanyParser                                               I@22:32:56.465
+Parsing file /home/user/2pc-formal-verification/spec/TwoPhase.tla
+Parsing file /tmp/FiniteSets.tla
+Parsing file /tmp/Naturals.tla
+Parsing file /tmp/__rewire_sequences_in_apalache.tla
+Parsing file /tmp/__apalache_folds.tla
+PASS #1: TypeCheckerSnowcat                                       I@22:32:56.790
+ > Running Snowcat .::.                                           I@22:32:56.790
+ > Your types are purrfect!                                       I@22:32:57.308
+ > All expressions are typed                                      I@22:32:57.308
+PASS #2: ConfigurationPass                                        I@22:32:57.308
+  > Set the initialization predicate to IndInv                    I@22:32:57.312
+  > Set the transition predicate to Next                          I@22:32:57.313
+  > Set the constant initialization predicate to ConstInit4       I@22:32:57.313
+  > Set an invariant to IndInv                                    I@22:32:57.313
+PASS #3: DesugarerPass                                            I@22:32:57.318
+  > Desugaring...                                                 I@22:32:57.318
+PASS #4: InlinePass                                               I@22:32:57.515
+Leaving only relevant operators: ConstInit4, ConstInit4Primed, IndInv, IndInvPrimed, Next I@22:32:57.516
+PASS #5: TemporalPass                                             I@22:32:57.582
+  > Rewriting temporal operators...                               I@22:32:57.582
+  > No temporal property specified, nothing to encode             I@22:32:57.582
+PASS #6: InlinePass                                               I@22:32:57.582
+Leaving only relevant operators: ConstInit4, ConstInit4Primed, IndInv, IndInvPrimed, Next I@22:32:57.582
+PASS #7: PrimingPass                                              I@22:32:57.589
+  > Introducing ConstInit4Primed for ConstInit4'                  I@22:32:57.590
+  > Introducing IndInvPrimed for IndInv'                          I@22:32:57.595
+PASS #8: VCGen                                                    I@22:32:57.596
+  > Producing verification conditions from the invariant IndInv   I@22:32:57.596
+  > VCGen produced 14 verification condition(s)                   I@22:32:57.601
+PASS #9: PreprocessingPass                                        I@22:32:57.603
+  > Before preprocessing: unique renaming                         I@22:32:57.603
+ > Applying standard transformations:                             I@22:32:57.608
+  > PrimePropagation                                              I@22:32:57.609
+  > Desugarer                                                     I@22:32:57.611
+  > UniqueRenamer                                                 I@22:32:57.614
+  > Normalizer                                                    I@22:32:57.619
+  > Keramelizer                                                   I@22:32:57.625
+  > After preprocessing: UniqueRenamer                            I@22:32:57.640
+PASS #10: TransitionFinderPass                                    I@22:32:57.651
+  > Found 1 initializing transitions                              I@22:32:57.670
+  > Found 16 transitions                                          I@22:32:57.679
+  > Found constant initializer ConstInit4                         I@22:32:57.680
+  > Applying unique renaming                                      I@22:32:57.681
+PASS #11: OptimizationPass                                        I@22:32:57.686
+ > Applying optimizations:                                        I@22:32:57.690
+  > ConstSimplifier                                               I@22:32:57.691
+  > ExprOptimizer                                                 I@22:32:57.701
+  > SetMembershipSimplifier                                       I@22:32:57.705
+  > ConstSimplifier                                               I@22:32:57.707
+PASS #12: AnalysisPass                                            I@22:32:57.716
+ > Marking skolemizable existentials and sets to be expanded...   I@22:32:57.718
+  > Skolemization                                                 I@22:32:57.718
+  > Expansion                                                     I@22:32:57.719
+  > Remove unused let-in defs                                     I@22:32:57.723
+ > Running analyzers...                                           I@22:32:57.727
+  > Introduced expression grades                                  I@22:32:57.732
+PASS #13: BoundedChecker                                          I@22:32:57.732
+State 0: Checking 14 state invariants                             I@22:32:58.312
+State 0: state invariant 0 holds.                                 I@22:32:58.336
+State 0: state invariant 1 holds.                                 I@22:32:58.341
+State 0: state invariant 2 holds.                                 I@22:32:58.352
+State 0: state invariant 3 holds.                                 I@22:32:58.354
+State 0: state invariant 4 holds.                                 I@22:32:58.360
+State 0: state invariant 5 holds.                                 I@22:32:58.366
+State 0: state invariant 6 holds.                                 I@22:32:58.369
+State 0: state invariant 7 holds.                                 I@22:32:58.391
+State 0: state invariant 8 holds.                                 I@22:32:58.392
+State 0: state invariant 9 holds.                                 I@22:32:58.397
+State 0: state invariant 10 holds.                                I@22:32:58.399
+State 0: state invariant 11 holds.                                I@22:32:58.401
+State 0: state invariant 12 holds.                                I@22:32:58.408
+State 0: state invariant 13 holds.                                I@22:32:58.415
+Step 0: picking a transition out of 1 transition(s)               I@22:32:58.416
+State 1: Checking 9 state invariants                              I@22:32:58.421
+State 1: state invariant 1 holds.                                 I@22:32:58.422
+State 1: state invariant 2 holds.                                 I@22:32:58.429
+State 1: state invariant 3 holds.                                 I@22:32:58.430
+State 1: state invariant 4 holds.                                 I@22:32:58.435
+State 1: state invariant 5 holds.                                 I@22:32:58.440
+State 1: state invariant 7 holds.                                 I@22:32:58.481
+State 1: state invariant 10 holds.                                I@22:32:58.484
+State 1: state invariant 11 holds.                                I@22:32:58.486
+State 1: state invariant 12 holds.                                I@22:32:58.495
+State 1: Checking 9 state invariants                              I@22:32:58.508
+State 1: state invariant 1 holds.                                 I@22:32:58.509
+State 1: state invariant 2 holds.                                 I@22:32:58.518
+State 1: state invariant 3 holds.                                 I@22:32:58.519
+State 1: state invariant 4 holds.                                 I@22:32:58.523
+State 1: state invariant 5 holds.                                 I@22:32:58.527
+State 1: state invariant 7 holds.                                 I@22:32:58.543
+State 1: state invariant 10 holds.                                I@22:32:58.544
+State 1: state invariant 11 holds.                                I@22:32:58.545
+State 1: state invariant 12 holds.                                I@22:32:58.551
+State 1: Checking 5 state invariants                              I@22:32:58.559
+State 1: state invariant 2 holds.                                 I@22:32:58.565
+State 1: state invariant 7 holds.                                 I@22:32:58.582
+State 1: state invariant 10 holds.                                I@22:32:58.584
+State 1: state invariant 11 holds.                                I@22:32:58.585
+State 1: state invariant 12 holds.                                I@22:32:58.591
+State 1: Checking 5 state invariants                              I@22:32:58.601
+State 1: state invariant 2 holds.                                 I@22:32:58.607
+State 1: state invariant 7 holds.                                 I@22:32:58.621
+State 1: state invariant 10 holds.                                I@22:32:58.623
+State 1: state invariant 11 holds.                                I@22:32:58.624
+State 1: state invariant 12 holds.                                I@22:32:58.630
+State 1: Checking 1 state invariants                              I@22:32:58.641
+State 1: state invariant 9 holds.                                 I@22:32:58.646
+State 1: Checking 6 state invariants                              I@22:32:58.666
+State 1: state invariant 0 holds.                                 I@22:32:58.681
+State 1: state invariant 2 holds.                                 I@22:32:58.689
+State 1: state invariant 4 holds.                                 I@22:32:58.693
+State 1: state invariant 5 holds.                                 I@22:32:58.697
+State 1: state invariant 12 holds.                                I@22:32:58.704
+State 1: state invariant 13 holds.                                I@22:32:58.709
+State 1: Checking 5 state invariants                              I@22:32:58.720
+State 1: state invariant 2 holds.                                 I@22:32:58.729
+State 1: state invariant 7 holds.                                 I@22:32:58.774
+State 1: state invariant 10 holds.                                I@22:32:58.777
+State 1: state invariant 11 holds.                                I@22:32:58.779
+State 1: state invariant 12 holds.                                I@22:32:58.785
+State 1: Checking 6 state invariants                              I@22:32:58.795
+State 1: state invariant 0 holds.                                 I@22:32:58.809
+State 1: state invariant 2 holds.                                 I@22:32:58.816
+State 1: state invariant 4 holds.                                 I@22:32:58.821
+State 1: state invariant 5 holds.                                 I@22:32:58.825
+State 1: state invariant 12 holds.                                I@22:32:58.830
+State 1: state invariant 13 holds.                                I@22:32:58.835
+State 1: Checking 9 state invariants                              I@22:32:58.838
+State 1: state invariant 1 holds.                                 I@22:32:58.839
+State 1: state invariant 2 holds.                                 I@22:32:58.845
+State 1: state invariant 3 holds.                                 I@22:32:58.846
+State 1: state invariant 4 holds.                                 I@22:32:58.850
+State 1: state invariant 5 holds.                                 I@22:32:58.853
+State 1: state invariant 7 holds.                                 I@22:32:58.866
+State 1: state invariant 10 holds.                                I@22:32:58.868
+State 1: state invariant 11 holds.                                I@22:32:58.870
+State 1: state invariant 12 holds.                                I@22:32:58.877
+State 1: Checking 7 state invariants                              I@22:32:58.902
+State 1: state invariant 0 holds.                                 I@22:32:58.917
+State 1: state invariant 2 holds.                                 I@22:32:58.924
+State 1: state invariant 4 holds.                                 I@22:32:58.928
+State 1: state invariant 5 holds.                                 I@22:32:58.933
+State 1: state invariant 9 holds.                                 I@22:32:58.937
+State 1: state invariant 12 holds.                                I@22:32:58.942
+State 1: state invariant 13 holds.                                I@22:32:58.947
+State 1: Checking 4 state invariants                              I@22:32:58.953
+State 1: state invariant 2 holds.                                 I@22:32:58.958
+State 1: state invariant 3 holds.                                 I@22:32:58.962
+State 1: state invariant 6 holds.                                 I@22:32:58.964
+State 1: state invariant 13 holds.                                I@22:32:58.969
+State 1: Checking 9 state invariants                              I@22:32:58.980
+State 1: state invariant 0 holds.                                 I@22:32:58.993
+State 1: state invariant 2 holds.                                 I@22:32:59.000
+State 1: state invariant 4 holds.                                 I@22:32:59.004
+State 1: state invariant 5 holds.                                 I@22:32:59.008
+State 1: state invariant 7 holds.                                 I@22:32:59.023
+State 1: state invariant 10 holds.                                I@22:32:59.025
+State 1: state invariant 11 holds.                                I@22:32:59.026
+State 1: state invariant 12 holds.                                I@22:32:59.032
+State 1: state invariant 13 holds.                                I@22:32:59.036
+State 1: Checking 6 state invariants                              I@22:32:59.051
+State 1: state invariant 0 holds.                                 I@22:32:59.065
+State 1: state invariant 2 holds.                                 I@22:32:59.071
+State 1: state invariant 4 holds.                                 I@22:32:59.075
+State 1: state invariant 5 holds.                                 I@22:32:59.078
+State 1: state invariant 12 holds.                                I@22:32:59.084
+State 1: state invariant 13 holds.                                I@22:32:59.088
+Step 1: picking a transition out of 16 transition(s)              I@22:32:59.089
+The outcome is: NoError                                           I@22:32:59.132
+Checker reports no error up to computation length 1               I@22:32:59.132
+It took me 0 days  0 hours  0 min  2 sec                          I@22:32:59.133
+Total time: 2.870 sec                                             I@22:32:59.133
+EXITCODE: OK

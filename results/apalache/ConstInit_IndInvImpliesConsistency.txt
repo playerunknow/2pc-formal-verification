@@ -1,0 +1,72 @@
+# Usage statistics is OFF. We care about your privacy.
+# If you want to help our project, consider enabling statistics with config --enable-stats=true.
+
+Output directory: /tmp/apalache-out-zusgfyh5/TwoPhase.tla/2026-11-07T22-32-45_6362395456222033266
+# APALACHE version: 0.50.3 | build: be35470                       I@22:32:45.236
+Tuning: search.outputTraces=false                                 I@22:32:45.263
+PASS #0: SanyParser                                               I@22:32:45.462
+Parsing file /home/user/2pc-formal-verification/spec/TwoPhase.tla
+Parsing file /tmp/FiniteSets.tla
+Parsing file /tmp/Naturals.tla
+Parsing file /tmp/__rewire_sequences_in_apalache.tla
+Parsing file /tmp/__apalache_folds.tla
+PASS #1: TypeCheckerSnowcat                                       I@22:32:45.821
+ > Running Snowcat .::.                                           I@22:32:45.822
+ > Your types are purrfect!                                       I@22:32:46.254
+ > All expressions are typed                                      I@22:32:46.254
+PASS #2: ConfigurationPass                                        I@22:32:46.255
+  > Set the initialization predicate to IndInv                    I@22:32:46.258
+  > Set the transition predicate to Next                          I@22:32:46.259
+  > Set the constant initialization predicate to ConstInit        I@22:32:46.259
+  > Set an invariant to Consistency                               I@22:32:46.259
+PASS #3: DesugarerPass                                            I@22:32:46.264
+  > Desugaring...                                                 I@22:32:46.264
+PASS #4: InlinePass                                               I@22:32:46.447
+Leaving only relevant operators: Consistency, ConstInit, ConstInitPrimed, IndInv, IndInvPrimed, Next I@22:32:46.448
+PASS #5: TemporalPass                                             I@22:32:46.510
+  > Rewriting temporal operators...                               I@22:32:46.510
+  > No temporal property specified, nothing to encode             I@22:32:46.510
+PASS #6: InlinePass                                               I@22:32:46.510
+Leaving only relevant operators: Consistency, ConstInit, ConstInitPrimed, IndInv, IndInvPrimed, Next I@22:32:46.511
+PASS #7: PrimingPass                                              I@22:32:46.518
+  > Introducing ConstInitPrimed for ConstInit'                    I@22:32:46.519
+  > Introducing IndInvPrimed for IndInv'                          I@22:32:46.524
+PASS #8: VCGen                                                    I@22:32:46.525
+  > Producing verification conditions from the invariant Consistency I@22:32:46.525
+  > VCGen produced 1 verification condition(s)                    I@22:32:46.530
+PASS #9: PreprocessingPass                                        I@22:32:46.531
+  > Before preprocessing: unique renaming                         I@22:32:46.531
+ > Applying standard transformations:                             I@22:32:46.536
+  > PrimePropagation                                              I@22:32:46.537
+  > Desugarer                                                     I@22:32:46.539
+  > UniqueRenamer                                                 I@22:32:46.543
+  > Normalizer                                                    I@22:32:46.547
+  > Keramelizer                                                   I@22:32:46.552
+  > After preprocessing: UniqueRenamer                            I@22:32:46.565
+PASS #10: TransitionFinderPass                                    I@22:32:46.572
+  > Found 1 initializing transitions                              I@22:32:46.590
+  > Found 16 transitions                                          I@22:32:46.600
+  > Found constant initializer ConstInit                          I@22:32:46.601
+  > Applying unique renaming                                      I@22:32:46.603
+PASS #11: OptimizationPass                                        I@22:32:46.611
+ > Applying optimizations:                                        I@22:32:46.621
+  > ConstSimplifier                                               I@22:32:46.624
+  > ExprOptimizer                                                 I@22:32:46.639
+  > SetMembershipSimplifier                                       I@22:32:46.643
+  > ConstSimplifier                                               I@22:32:46.645
+PASS #12: AnalysisPass                                            I@22:32:46.652
+ > Marking skolemizable existentials and sets to be expanded...   I@22:32:46.654
+  > Skolemization                                                 I@22:32:46.656
+  > Expansion                                                     I@22:32:46.660
+  > Remove unused let-in defs                                     I@22:32:46.665
+ > Running analyzers...                                           I@22:32:46.669
+  > Introduced expression grades                                  I@22:32:46.673
+PASS #13: BoundedChecker                                          I@22:32:46.673
+State 0: Checking 1 state invariants                              I@22:32:47.258
+State 0: state invariant 0 holds.                                 I@22:32:47.269
+Step 0: picking a transition out of 1 transition(s)               I@22:32:47.273
+The outcome is: NoError                                           I@22:32:47.277
+Checker reports no error up to computation length 0               I@22:32:47.277
+It took me 0 days  0 hours  0 min  2 sec                          I@22:32:47.278
+Total time: 2.38 sec                                              I@22:32:47.278
+EXITCODE: OK

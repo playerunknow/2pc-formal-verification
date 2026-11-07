@@ -1,0 +1,67 @@
+TLC2 Version 2026.11.06.222357 (rev: d8fb231)
+Running breadth-first search Model-Checking with fp 1 and seed 1 with 1 worker on 4 cores with 3641MB heap and 64MB offheap memory [pid: 7332] (Linux 6.18.44-fc-v310 amd64, Ubuntu 21.0.12.1 64bit, MSBDiskFPSet, DiskStateQueue).
+Parsing file /home/user/2pc-formal-verification/spec/MCTwoPhase.tla
+Parsing file /home/user/2pc-formal-verification/spec/TwoPhase.tla
+Parsing file /tmp/tlc-8488691379050305383/FiniteSets.tla (jar:file:/home/user/2pc-formal-verification/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /tmp/tlc-8488691379050305383/Naturals.tla (jar:file:/home/user/2pc-formal-verification/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /tmp/tlc-8488691379050305383/Sequences.tla (jar:file:/home/user/2pc-formal-verification/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TwoPhase
+Semantic processing of module MCTwoPhase
+Linting of module TwoPhase
+Linting of module MCTwoPhase
+Starting... (2026-11-07 22:32:33)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-07 22:32:34.
+Error: Invariant DeadlockFreeNoTMRecovery is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ msgs = {}
+/\ rmState = [payment |-> "working", inventory |-> "working", order |-> "working"]
+/\ tmState = "init"
+/\ tmUp = TRUE
+/\ rmUp = [payment |-> TRUE, inventory |-> TRUE, order |-> TRUE]
+/\ tmPrepared = {}
+
+State 2: <RMPrepare("payment") line 181, col 5 to line 185, col 52 of module TwoPhase>
+/\ msgs = {[type |-> "Prepared", rm |-> "payment"]}
+/\ rmState = [payment |-> "prepared", inventory |-> "working", order |-> "working"]
+/\ tmState = "init"
+/\ tmUp = TRUE
+/\ rmUp = [payment |-> TRUE, inventory |-> TRUE, order |-> TRUE]
+/\ tmPrepared = {}
+
+State 3: <RMPrepare("inventory") line 181, col 5 to line 185, col 52 of module TwoPhase>
+/\ msgs = { [type |-> "Prepared", rm |-> "payment"],
+  [type |-> "Prepared", rm |-> "inventory"] }
+/\ rmState = [payment |-> "prepared", inventory |-> "prepared", order |-> "working"]
+/\ tmState = "init"
+/\ tmUp = TRUE
+/\ rmUp = [payment |-> TRUE, inventory |-> TRUE, order |-> TRUE]
+/\ tmPrepared = {}
+
+State 4: <RMPrepare("order") line 181, col 5 to line 185, col 52 of module TwoPhase>
+/\ msgs = { [type |-> "Prepared", rm |-> "payment"],
+  [type |-> "Prepared", rm |-> "inventory"],
+  [type |-> "Prepared", rm |-> "order"] }
+/\ rmState = [payment |-> "prepared", inventory |-> "prepared", order |-> "prepared"]
+/\ tmState = "init"
+/\ tmUp = TRUE
+/\ rmUp = [payment |-> TRUE, inventory |-> TRUE, order |-> TRUE]
+/\ tmPrepared = {}
+
+State 5: <TMCrash line 158, col 5 to line 160, col 61 of module TwoPhase>
+/\ msgs = { [type |-> "Prepared", rm |-> "payment"],
+  [type |-> "Prepared", rm |-> "inventory"],
+  [type |-> "Prepared", rm |-> "order"] }
+/\ rmState = [payment |-> "prepared", inventory |-> "prepared", order |-> "prepared"]
+/\ tmState = "init"
+/\ tmUp = FALSE
+/\ rmUp = [payment |-> TRUE, inventory |-> TRUE, order |-> TRUE]
+/\ tmPrepared = {}
+
+691 states generated, 307 distinct states found, 230 states left on queue.
+The depth of the complete state graph search is 5.
+Finished in 00s at (2026-11-07 22:32:34)

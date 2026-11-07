@@ -1,0 +1,70 @@
+TLC2 Version 2026.11.06.222357 (rev: d8fb231)
+Running breadth-first search Model-Checking with fp 1 and seed 1 with 1 worker on 4 cores with 3641MB heap and 64MB offheap memory [pid: 7354] (Linux 6.18.44-fc-v310 amd64, Ubuntu 21.0.12.1 64bit, MSBDiskFPSet, DiskStateQueue).
+Parsing file /home/user/2pc-formal-verification/spec/MCTwoPhase.tla
+Parsing file /home/user/2pc-formal-verification/spec/TwoPhase.tla
+Parsing file /tmp/tlc-16292561529674793746/FiniteSets.tla (jar:file:/home/user/2pc-formal-verification/tools/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /tmp/tlc-16292561529674793746/Naturals.tla (jar:file:/home/user/2pc-formal-verification/tools/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /tmp/tlc-16292561529674793746/Sequences.tla (jar:file:/home/user/2pc-formal-verification/tools/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TwoPhase
+Semantic processing of module MCTwoPhase
+Linting of module TwoPhase
+Linting of module MCTwoPhase
+Starting... (2026-11-07 22:32:34)
+Implied-temporal checking--satisfiability problem has 1 branches.
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-07 22:32:34.
+Checking temporal properties for the current state space with 23961 total distinct states at (2026-11-07 22:32:37)
+Error: Temporal property Termination was violated.
+
+Error: The following behavior constitutes a counter-example:
+
+State 1: <Initial predicate>
+/\ msgs = {}
+/\ rmState = [payment |-> "working", inventory |-> "working", order |-> "working"]
+/\ tmState = "init"
+/\ tmUp = TRUE
+/\ rmUp = [payment |-> TRUE, inventory |-> TRUE, order |-> TRUE]
+/\ tmPrepared = {}
+
+State 2: <RMChooseToAbort("payment") line 189, col 5 to line 192, col 58 of module TwoPhase>
+/\ msgs = {}
+/\ rmState = [payment |-> "aborted", inventory |-> "working", order |-> "working"]
+/\ tmState = "init"
+/\ tmUp = TRUE
+/\ rmUp = [payment |-> TRUE, inventory |-> TRUE, order |-> TRUE]
+/\ tmPrepared = {}
+
+State 3: <RMPrepare("order") line 181, col 5 to line 185, col 52 of module TwoPhase>
+/\ msgs = {[type |-> "Prepared", rm |-> "order"]}
+/\ rmState = [payment |-> "aborted", inventory |-> "working", order |-> "prepared"]
+/\ tmState = "init"
+/\ tmUp = TRUE
+/\ rmUp = [payment |-> TRUE, inventory |-> TRUE, order |-> TRUE]
+/\ tmPrepared = {}
+
+State 4: <RMPrepare("inventory") line 181, col 5 to line 185, col 52 of module TwoPhase>
+/\ msgs = { [type |-> "Prepared", rm |-> "inventory"],
+  [type |-> "Prepared", rm |-> "order"] }
+/\ rmState = [payment |-> "aborted", inventory |-> "prepared", order |-> "prepared"]
+/\ tmState = "init"
+/\ tmUp = TRUE
+/\ rmUp = [payment |-> TRUE, inventory |-> TRUE, order |-> TRUE]
+/\ tmPrepared = {}
+
+State 5: <TMCrash line 158, col 5 to line 160, col 61 of module TwoPhase>
+/\ msgs = { [type |-> "Prepared", rm |-> "inventory"],
+  [type |-> "Prepared", rm |-> "order"] }
+/\ rmState = [payment |-> "aborted", inventory |-> "prepared", order |-> "prepared"]
+/\ tmState = "init"
+/\ tmUp = FALSE
+/\ rmUp = [payment |-> TRUE, inventory |-> TRUE, order |-> TRUE]
+/\ tmPrepared = {}
+
+State 6: Stuttering
+Finished checking temporal properties in 00s at 2026-11-07 22:32:37
+155071 states generated, 24238 distinct states found, 3013 states left on queue.
+The depth of the complete state graph search is 14.
+Finished in 03s at (2026-11-07 22:32:37)

@@ -1,0 +1,91 @@
+# Usage statistics is OFF. We care about your privacy.
+# If you want to help our project, consider enabling statistics with config --enable-stats=true.
+
+Output directory: /tmp/apalache-out-saxkhwb9/TwoPhase.tla/2026-11-07T22-33-23_1986612369044328457
+# APALACHE version: 0.50.3 | build: be35470                       I@22:33:23.552
+Tuning: search.outputTraces=false                                 I@22:33:23.576
+PASS #0: SanyParser                                               I@22:33:23.809
+Parsing file /home/user/2pc-formal-verification/spec/TwoPhase.tla
+Parsing file /tmp/FiniteSets.tla
+Parsing file /tmp/Naturals.tla
+Parsing file /tmp/__rewire_sequences_in_apalache.tla
+Parsing file /tmp/__apalache_folds.tla
+PASS #1: TypeCheckerSnowcat                                       I@22:33:24.156
+ > Running Snowcat .::.                                           I@22:33:24.156
+ > Your types are purrfect!                                       I@22:33:24.613
+ > All expressions are typed                                      I@22:33:24.614
+PASS #2: ConfigurationPass                                        I@22:33:24.614
+  > Set the initialization predicate to IndInv                    I@22:33:24.618
+  > Set the transition predicate to Next                          I@22:33:24.619
+  > Set the constant initialization predicate to ConstInitMutant  I@22:33:24.619
+  > Set an invariant to IndInv                                    I@22:33:24.620
+PASS #3: DesugarerPass                                            I@22:33:24.625
+  > Desugaring...                                                 I@22:33:24.626
+PASS #4: InlinePass                                               I@22:33:24.833
+Leaving only relevant operators: ConstInitMutant, ConstInitMutantPrimed, IndInv, IndInvPrimed, Next I@22:33:24.834
+PASS #5: TemporalPass                                             I@22:33:24.906
+  > Rewriting temporal operators...                               I@22:33:24.906
+  > No temporal property specified, nothing to encode             I@22:33:24.906
+PASS #6: InlinePass                                               I@22:33:24.906
+Leaving only relevant operators: ConstInitMutant, ConstInitMutantPrimed, IndInv, IndInvPrimed, Next I@22:33:24.907
+PASS #7: PrimingPass                                              I@22:33:24.913
+  > Introducing ConstInitMutantPrimed for ConstInitMutant'        I@22:33:24.915
+  > Introducing IndInvPrimed for IndInv'                          I@22:33:24.919
+PASS #8: VCGen                                                    I@22:33:24.920
+  > Producing verification conditions from the invariant IndInv   I@22:33:24.920
+  > VCGen produced 14 verification condition(s)                   I@22:33:24.925
+PASS #9: PreprocessingPass                                        I@22:33:24.927
+  > Before preprocessing: unique renaming                         I@22:33:24.927
+ > Applying standard transformations:                             I@22:33:24.932
+  > PrimePropagation                                              I@22:33:24.932
+  > Desugarer                                                     I@22:33:24.934
+  > UniqueRenamer                                                 I@22:33:24.937
+  > Normalizer                                                    I@22:33:24.942
+  > Keramelizer                                                   I@22:33:24.949
+  > After preprocessing: UniqueRenamer                            I@22:33:24.965
+PASS #10: TransitionFinderPass                                    I@22:33:24.977
+  > Found 1 initializing transitions                              I@22:33:24.997
+  > Found 16 transitions                                          I@22:33:25.007
+  > Found constant initializer ConstInitMutant                    I@22:33:25.007
+  > Applying unique renaming                                      I@22:33:25.008
+PASS #11: OptimizationPass                                        I@22:33:25.013
+ > Applying optimizations:                                        I@22:33:25.017
+  > ConstSimplifier                                               I@22:33:25.018
+  > ExprOptimizer                                                 I@22:33:25.027
+  > SetMembershipSimplifier                                       I@22:33:25.033
+  > ConstSimplifier                                               I@22:33:25.034
+PASS #12: AnalysisPass                                            I@22:33:25.043
+ > Marking skolemizable existentials and sets to be expanded...   I@22:33:25.046
+  > Skolemization                                                 I@22:33:25.046
+  > Expansion                                                     I@22:33:25.048
+  > Remove unused let-in defs                                     I@22:33:25.051
+ > Running analyzers...                                           I@22:33:25.055
+  > Introduced expression grades                                  I@22:33:25.060
+PASS #13: BoundedChecker                                          I@22:33:25.061
+State 0: Checking 14 state invariants                             I@22:33:25.791
+State 0: state invariant 0 holds.                                 I@22:33:25.815
+State 0: state invariant 1 holds.                                 I@22:33:25.822
+State 0: state invariant 2 holds.                                 I@22:33:25.835
+State 0: state invariant 3 holds.                                 I@22:33:25.837
+State 0: state invariant 4 holds.                                 I@22:33:25.845
+State 0: state invariant 5 holds.                                 I@22:33:25.852
+State 0: state invariant 6 holds.                                 I@22:33:25.856
+State 0: state invariant 7 holds.                                 I@22:33:25.882
+State 0: state invariant 8 holds.                                 I@22:33:25.883
+State 0: state invariant 9 holds.                                 I@22:33:25.887
+State 0: state invariant 10 holds.                                I@22:33:25.889
+State 0: state invariant 11 holds.                                I@22:33:25.890
+State 0: state invariant 12 holds.                                I@22:33:25.897
+State 0: state invariant 13 holds.                                I@22:33:25.901
+Step 0: picking a transition out of 1 transition(s)               I@22:33:25.902
+State 1: Checking 9 state invariants                              I@22:33:25.908
+State 1: state invariant 1 holds.                                 I@22:33:25.909
+State 1: state invariant 2 holds.                                 I@22:33:25.916
+Check the trace in: /tmp/apalache-out-saxkhwb9/TwoPhase.tla/2026-11-07T22-33-23_1986612369044328457/violation1.tla, /tmp/apalache-out-saxkhwb9/TwoPhase.tla/2026-11-07T22-33-23_1986612369044328457/MCviolation1.out, /tmp/apalache-out-saxkhwb9/TwoPhase.tla/2026-11-07T22-33-23_1986612369044328457/violation1.json, /tmp/apalache-out-saxkhwb9/TwoPhase.tla/2026-11-07T22-33-23_1986612369044328457/violation1.itf.json I@22:33:26.087
+State 1: state invariant 3 violated.                              I@22:33:26.087
+Found 1 error(s)                                                  I@22:33:26.088
+The outcome is: Error                                             I@22:33:26.092
+Checker has found an error                                        I@22:33:26.097
+It took me 0 days  0 hours  0 min  2 sec                          I@22:33:26.097
+Total time: 2.542 sec                                             I@22:33:26.097
+EXITCODE: ERROR (12)
