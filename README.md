@@ -92,7 +92,7 @@ python scripts/run_one.py Mutant       # одна конфігурація з п
 Додатково: `python scripts/setup_tools.py --tlaps` — встановити TLAPS (Linux x86_64),
 тоді `run_all.py` перевірить і доведення. `python scripts/render_diagrams.py` —
 перерендерити діаграми. Те саме через `make setup`, `make verify`, `make demo`,
-`make diagrams`.
+`make diagrams`. Що саме робить кожна команда — у [docs/commands.md](docs/commands.md).
 
 ## Структура репозиторію
 
@@ -125,6 +125,7 @@ tools/                    інструменти (не в git, завантаж�
 
 | Файл | Що всередині |
 |---|---|
+| [docs/commands.md](docs/commands.md) | **усі команди: навіщо запускати, що робить комп'ютер, що з'явиться** |
 | [docs/overview.md](docs/overview.md) | одна сторінка: проблема, модель, результат, висновок |
 | [docs/model.md](docs/model.md) | як влаштована модель: стани, мережа, збої, усі дії |
 | [docs/properties.md](docs/properties.md) | S1–S5, L1–L4: формули і пояснення |
