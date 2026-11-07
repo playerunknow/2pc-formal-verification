@@ -1,0 +1,24 @@
+# Інструменти завантажуються скриптом scripts/setup_tools.py
+tools/*
+!tools/README.md
+
+# Службові файли TLC / Apalache
+states/
+*_TTrace_*.tla
+*_TTrace_*.bin
+*.st
+*.fp
+_apalache-out/
+detailed.log
+x/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Редактори / ОС
+.idea/
+.vscode/
+.DS_Store
+*.part
