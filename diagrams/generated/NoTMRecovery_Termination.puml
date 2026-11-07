@@ -1,0 +1,27 @@
+@startuml
+!include ../_style.iuml
+title Контрприклад TLC: NoTMRecovery_Termination\n<size:14>згенеровано автоматично з контрприкладу TLC</size>
+
+participant "Координатор" as TM
+queue "Мережа" as NET
+participant "payment" as RM_payment
+participant "inventory" as RM_inventory
+participant "order" as RM_order
+
+note over TM, RM_order: <b>1.</b> Старт: усі сервіси у стані working
+note over RM_payment #FFE0B2: <b>2.</b> голос «ні» → aborted
+note over RM_order: <b>3.</b> записав PREPARED у журнал
+RM_order -> NET: Prepared (так)
+note over RM_inventory: <b>4.</b> записав PREPARED у журнал
+RM_inventory -> NET: Prepared (так)
+note over TM #FFCDD2: <b>5.</b> <color:#B71C1C><b>Координатор впав</b></color>
+... <b>6.</b> далі нічого не відбувається (нескінченно) ...
+
+note across #FFF9C4
+<b>Порушено: Termination</b>
+payment = aborted
+inventory = prepared
+order = prepared
+координатор = init (впав)
+end note
+@enduml

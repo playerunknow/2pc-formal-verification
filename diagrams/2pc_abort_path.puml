@@ -1,0 +1,27 @@
+@startuml
+!include _style.iuml
+title 2PC: відмова учасника → ABORT
+
+participant "Координатор" as TM
+participant "payment" as P
+participant "inventory" as I
+participant "order" as O
+
+== Фаза 1: голосування ==
+TM -> P : Prepare
+TM -> I : Prepare
+TM -> O : Prepare
+P --> TM : Prepared (так)
+note over I #FFE0B2 : товару немає →\nголос «ні», aborted
+O --> TM : Prepared (так)
+
+== Фаза 2: рішення ==
+note over TM #FFE0B2 : є відмова / тайм-аут →\nрішення ABORT у журнал
+TM -> P : Abort
+TM -> I : Abort
+TM -> O : Abort
+note over P #FFE0B2 : aborted
+/ note over I #FFE0B2 : aborted
+/ note over O #FFE0B2 : aborted
+note across : Ніхто не зафіксував — стан узгоджений (S2 виконується)
+@enduml

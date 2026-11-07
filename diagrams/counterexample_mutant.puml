@@ -1,0 +1,20 @@
+@startuml
+!include _style.iuml
+title Контрприклад: зламаний координатор (мутант)
+
+participant "Координатор\n(мутант)" as TM
+participant "payment" as P
+participant "inventory" as I
+participant "order" as O
+
+note over P #FFE0B2 : 1. голос «ні» → aborted
+I --> TM : 2. Prepared (так)
+note over TM #FFCDD2 : 3. отримав ОДИН голос «так»\n4. <b>помилка:</b> рішення COMMIT\n(а мав чекати всіх)
+TM -> I : Commit
+note over I #C8E6C9 : 5. committed
+note across #FFF9C4
+  payment = <b>aborted</b>, inventory = <b>committed</b>
+  <b>Порушено S2 Consistency — частково зафіксований стан.</b>
+  TLC ловить помилку → властивості сформульовані не тривіально.
+end note
+@enduml

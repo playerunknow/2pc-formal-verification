@@ -1,0 +1,26 @@
+@startuml
+!pragma layout smetana
+!include _style.iuml
+title Індуктивний інваріант: доказ для виконань будь-якої довжини
+
+rectangle "<b>1. База</b>\nInit ⇒ IndInv\n<size:14>початковий стан задовольняє IndInv</size>" as B #E3F2FD
+rectangle "<b>2. Крок індукції</b>\nIndInv ∧ Next ⇒ IndInv′\n<size:14>з БУДЬ-ЯКОГО стану, де IndInv істинний,</size>\n<size:14>будь-який крок веде в стан, де він теж істинний</size>" as S #E3F2FD
+rectangle "<b>3. Наслідок</b>\nIndInv ⇒ Consistency\nIndInv ⇒ CommitValidity\nIndInv ⇒ FollowsTM" as C #E3F2FD
+rectangle "<b>Висновок</b>\nIndInv істинний у <b>кожному</b> досяжному стані,\nотже <b>немає часткового коміту в жодному</b>\nдосяжному стані — без перебору всіх станів" as R #C8E6C9
+
+B --> S
+S --> C
+C --> R
+
+note right of S
+  Apalache перевіряє крок
+  символьно (SMT, Z3) для
+  3, 4 і 5 сервісів:
+  <b>~--init=IndInv ~--next=Next ~--length=1</b>
+end note
+
+note left of B
+  Мутант: крок 2 <b>не виконується</b>
+  (Apalache: Error) — так і має бути.
+end note
+@enduml

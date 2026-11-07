@@ -1,0 +1,28 @@
+@startuml
+!include ../_style.iuml
+title Контрприклад TLC: Mutant\n<size:14>згенеровано автоматично з контрприкладу TLC</size>
+
+participant "Координатор" as TM
+queue "Мережа" as NET
+participant "payment" as RM_payment
+participant "inventory" as RM_inventory
+participant "order" as RM_order
+
+note over TM, RM_order: <b>1.</b> Старт: усі сервіси у стані working
+note over RM_payment: <b>2.</b> записав PREPARED у журнал
+RM_payment -> NET: Prepared (так)
+NET -> TM: <b>3.</b> Prepared від payment
+note over TM #C8E6C9: <b>4.</b> рішення COMMIT записано в журнал
+TM -> NET: Commit (усім)
+NET -> RM_payment: <b>5.</b> Commit
+note over RM_payment #C8E6C9: committed
+note over RM_inventory #FFE0B2: <b>6.</b> голос «ні» → aborted
+
+note across #FFF9C4
+<b>Порушено: Consistency</b>
+payment = committed
+inventory = aborted
+order = working
+координатор = committed
+end note
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+!pragma layout smetana
+!include _style.iuml
+title Стани координатора (TM)
+
+[*] --> init
+init --> committed : TMCommit\nусі проголосували «так»
+init --> aborted : TMAbort\nтайм-аут: хтось відмовився\nабо впав
+init --> aborted : TMRecover після падіння\n(presumed abort)
+committed --> committed : TMResend
+aborted --> aborted : TMResend
+
+state init : збирає голоси\n(tmPrepared)
+state committed #C8E6C9 : рішення COMMIT\nу журналі WAL
+state aborted #FFE0B2 : рішення ABORT\nу журналі WAL
+
+note right of init
+  <b>Падіння (TMCrash):</b> координатор зупиняється.
+  <b>Відновлення (TMRecover):</b>
+  • рішення є в журналі → зберігається і
+    розсилається повторно (TMResend);
+  • рішення немає → ABORT (presumed abort).
+end note
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+!pragma layout smetana
+!include _style.iuml
+title Як перевіряється модель
+
+start
+:spec/TwoPhase.tla\n(модель + safety + IndInv);
+:spec/MCTwoPhase.tla\n(fairness + liveness);
+fork
+  :<b>TLC</b> — перебір усіх станів;
+  :2 / 3 / 4 сервіси\n8 конфігурацій;
+  if (конфігурація) then (правильний протокол)
+    :Full_2, Full, Full_4,\nNoFailures, NoTMRecovery_Safety;
+    #C8E6C9:очікується <b>No error</b>;
+  else (зламаний / без відновлення)
+    :NoTMRecovery_Deadlock,\nNoTMRecovery_Termination, Mutant;
+    #FFCDD2:очікується <b>порушення</b>\n+ контрприклад;
+    :trace_to_puml.py →\nsequence-діаграма;
+  endif
+fork again
+  :<b>Apalache</b> — SMT-розв'язувач;
+  :індуктивний інваріант IndInv\n3 / 4 / 5 сервісів;
+  if (константи) then (ConstInit, 4, 5)
+    #C8E6C9:15 × <b>NoError</b>;
+  else (ConstInitMutant)
+    #FFCDD2:<b>Error</b> — мутант\nмає бути спійманий;
+  endif
+end fork
+:results/summary.md\nresults/summary.json;
+stop
+@enduml

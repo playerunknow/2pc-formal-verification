@@ -1,0 +1,27 @@
+@startuml
+!pragma layout smetana
+!include _style.iuml
+title 8 конфігурацій TLC
+
+package "Правильний протокол — очікується No error" #F1F8E9 {
+  rectangle "<b>Full_2</b>\n2 сервіси\nзбої + відновлення\nS1–S5, L1–L3" as F2
+  rectangle "<b>Full</b>\n3 сервіси\nзбої + відновлення\nS1–S5, L1–L3" as F3
+  rectangle "<b>Full_4</b>\n4 сервіси\nзбої + відновлення\nS1–S5, L1–L3" as F4
+  rectangle "<b>NoFailures</b>\n3 сервіси\nбез збоїв\nусе + L4" as NF
+  rectangle "<b>NoTMRecovery_Safety</b>\n3 сервіси\nTM не відновлюється\nS1–S5" as NS
+}
+
+package "Очікується порушення (це добре)" #FFEBEE {
+  rectangle "<b>NoTMRecovery_Deadlock</b>\nTM не відновлюється\n✘ L1 DeadlockFree" as ND
+  rectangle "<b>NoTMRecovery_Termination</b>\nTM не відновлюється\n✘ L2 Termination" as NT
+  rectangle "<b>Mutant</b>\nкоординатор комітить\nпісля одного «так»\n✘ S2 Consistency" as MU
+}
+
+F2 -[hidden]right- F3
+F3 -[hidden]right- F4
+NF -[hidden]right- NS
+ND -[hidden]right- NT
+NT -[hidden]right- MU
+F2 -[hidden]down- NF
+NF -[hidden]down- ND
+@enduml

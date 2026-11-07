@@ -1,0 +1,27 @@
+@startuml
+!pragma layout smetana
+!include _style.iuml
+title Стани учасника (мікросервісу)
+
+[*] --> working
+working --> prepared : RMPrepare\nголос «так»,\nPREPARED у журнал
+working --> aborted : RMChooseToAbort\nголос «ні»
+working --> aborted : RMRecover\n(незавершена робота\nвідкочується)
+prepared --> committed : RMRcvCommit
+prepared --> aborted : RMRcvAbort
+committed --> [*]
+aborted --> [*]
+
+state working : локальна робота,\nще не голосував
+state prepared #FFF8E1 : тримає блокування,\nчекає рішення TM
+state committed #C8E6C9 : зафіксовано
+state aborted #FFE0B2 : відкочено
+
+note right of prepared
+  <b>Падіння (RMCrash) і відновлення (RMRecover):</b>
+  prepared / committed / aborted записані в журнал
+  і переживають падіння без змін.
+  Сам вийти з prepared учасник НЕ може —
+  лише за рішенням координатора.
+end note
+@enduml

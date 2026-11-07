@@ -1,0 +1,44 @@
+@startuml
+!pragma layout smetana
+!include _style.iuml
+title Розподілена транзакція між мікросервісами
+
+actor "Клієнт" as Client
+node "Координатор транзакцій (TM)" as TMNode {
+  component "Менеджер транзакцій" as TM
+  database "Журнал WAL\n(рішення TM)" as TMLog
+}
+node "payment" as P {
+  component "Сервіс оплати" as PS
+  database "БД оплат" as PDB
+  database "Журнал" as PL
+}
+node "inventory" as I {
+  component "Сервіс складу" as IS
+  database "БД складу" as IDB
+  database "Журнал" as IL
+}
+node "order" as O {
+  component "Сервіс замовлень" as OS
+  database "БД замовлень" as ODB
+  database "Журнал" as OL
+}
+
+Client --> TM : оформити замовлення
+TM -right-> TMLog
+TM --> PS : Prepare / Commit / Abort
+TM --> IS : Prepare / Commit / Abort
+TM --> OS : Prepare / Commit / Abort
+PS --> PDB
+PS --> PL
+IS --> IDB
+IS --> IL
+OS --> ODB
+OS --> OL
+
+legend bottom
+  <b>Кожен сервіс — своя БД, спільної транзакції немає.</b>
+  Узгодити «усі зафіксували або всі відкотили» має протокол двофазного коміту:
+  координатор збирає голоси (фаза 1) і розсилає рішення (фаза 2).
+endlegend
+@enduml

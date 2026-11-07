@@ -1,0 +1,28 @@
+@startuml
+!include ../_style.iuml
+title Контрприклад TLC: NoTMRecovery_Deadlock\n<size:14>згенеровано автоматично з контрприкладу TLC</size>
+
+participant "Координатор" as TM
+queue "Мережа" as NET
+participant "payment" as RM_payment
+participant "inventory" as RM_inventory
+participant "order" as RM_order
+
+note over TM, RM_order: <b>1.</b> Старт: усі сервіси у стані working
+note over RM_payment: <b>2.</b> записав PREPARED у журнал
+RM_payment -> NET: Prepared (так)
+note over RM_inventory: <b>3.</b> записав PREPARED у журнал
+RM_inventory -> NET: Prepared (так)
+note over RM_order: <b>4.</b> записав PREPARED у журнал
+RM_order -> NET: Prepared (так)
+note over TM #FFCDD2: <b>5.</b> <color:#B71C1C><b>Координатор впав</b></color>
+... жоден крок протоколу більше неможливий: сервіси чекають вічно ...
+
+note across #FFF9C4
+<b>Порушено: DeadlockFreeNoTMRecovery</b>
+payment = prepared
+inventory = prepared
+order = prepared
+координатор = init (впав)
+end note
+@enduml

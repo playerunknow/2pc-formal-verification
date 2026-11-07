@@ -1,0 +1,36 @@
+' Спільний стиль усіх діаграм: шрифт без засічок, великий кегль (для проектора),
+' стримані кольори. Підключається рядком  !include _style.iuml
+skinparam defaultFontName "DejaVu Sans"
+skinparam defaultFontSize 16
+skinparam titleFontSize 22
+skinparam titleFontStyle bold
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam backgroundColor #FFFFFF
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 15
+skinparam ArrowThickness 1.5
+skinparam NoteBackgroundColor #FFFDE7
+skinparam NoteBorderColor #BDB76B
+skinparam NoteFontSize 15
+skinparam ParticipantBackgroundColor #E3F2FD
+skinparam ParticipantBorderColor #1565C0
+skinparam ParticipantFontSize 16
+skinparam QueueBackgroundColor #ECEFF1
+skinparam QueueBorderColor #607D8B
+skinparam SequenceLifeLineBorderColor #90A4AE
+skinparam SequenceGroupBorderColor #78909C
+skinparam SequenceDividerBackgroundColor #ECEFF1
+skinparam ComponentBackgroundColor #E3F2FD
+skinparam ComponentBorderColor #1565C0
+skinparam DatabaseBackgroundColor #F1F8E9
+skinparam DatabaseBorderColor #558B2F
+skinparam StateBackgroundColor #E3F2FD
+skinparam StateBorderColor #1565C0
+skinparam StateFontSize 16
+skinparam ActivityBackgroundColor #E3F2FD
+skinparam ActivityBorderColor #1565C0
+skinparam ActivityDiamondBackgroundColor #FFF8E1
+skinparam ActivityDiamondBorderColor #F9A825
+skinparam PackageBorderColor #78909C
+skinparam RectangleBorderColor #78909C

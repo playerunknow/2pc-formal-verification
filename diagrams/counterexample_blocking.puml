@@ -1,0 +1,25 @@
+@startuml
+!include _style.iuml
+title Контрприклад: блокування 2PC без відновлення координатора
+
+participant "Координатор" as TM
+participant "payment" as P
+participant "inventory" as I
+participant "order" as O
+
+TM -> P : Prepare
+TM -> I : Prepare
+TM -> O : Prepare
+P --> TM : Prepared (так)
+I --> TM : Prepared (так)
+O --> TM : Prepared (так)
+note over P, O #FFF8E1 : усі в стані <b>prepared</b>: тримають блокування\nі не мають права вирішити самі
+note over TM #FFCDD2 : <color:#B71C1C><b>Координатор впав</b></color>\n(і не відновлюється)
+... час іде: жоден крок протоколу неможливий ...
+note over P, O #FFCDD2 : чекають вічно, ресурси заблоковані
+note across #FFF9C4
+  <b>Порушено L1 DeadlockFree і L2 Termination.</b>
+  Це формальне підтвердження результату Скіна (1981):
+  2PC — блокуючий протокол. Рятує лише відновлення координатора з журналу.
+end note
+@enduml

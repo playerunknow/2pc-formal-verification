@@ -1,0 +1,27 @@
+@startuml
+!include _style.iuml
+title 2PC: щасливий шлях (усі сказали «так»)
+
+participant "Координатор" as TM
+participant "payment" as P
+participant "inventory" as I
+participant "order" as O
+
+== Фаза 1: голосування ==
+TM -> P : Prepare
+TM -> I : Prepare
+TM -> O : Prepare
+note over P, O : кожен виконує локальну частину,\nпише PREPARED у свій журнал і тримає блокування
+P --> TM : Prepared (так)
+I --> TM : Prepared (так)
+O --> TM : Prepared (так)
+
+== Фаза 2: рішення ==
+note over TM #C8E6C9 : усі «так» → рішення COMMIT\nзаписано в журнал WAL
+TM -> P : Commit
+TM -> I : Commit
+TM -> O : Commit
+note over P #C8E6C9 : committed
+/ note over I #C8E6C9 : committed
+/ note over O #C8E6C9 : committed
+@enduml

@@ -1,0 +1,17 @@
+@startmindmap
+!include _style.iuml
+title Що доводимо: властивості S1–S5, L1–L4
+* Модель 2PC
+** Safety\n«погане ніколи не стається»
+*** S1 TypeOK\nкоректні типи
+***[#FFCDD2] S2 Consistency (AC1)\n<b>немає частково</b>\n<b>зафіксованого стану</b>
+*** S3 CommitValidity (AC3)\ncommit лише якщо всі «так»
+*** S4 Stability (AC2)\nрішення не змінюються
+*** S5 FollowsTM (AC1)\nучасники виконують рішення TM
+left side
+** Liveness\n«добре колись стається»
+***[#FFCDD2] L1 DeadlockFree\n<b>завжди можливий крок</b>\n<b>протоколу (немає Deadlock)</b>
+*** L2 Termination (AC5)\nусі завершують,\nякщо збої припинились
+*** L3 EventualCommit\nхтось закомітив →\nзакомітять усі
+*** L4 NonTriviality (AC4)\nусі «так» і без збоїв → commit
+@endmindmap
