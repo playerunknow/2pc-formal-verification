@@ -27,21 +27,21 @@
    - `results/summary.md`.
 4. Збільшити шрифт термінала (на проекторі дрібне не видно): ~18–20 pt.
 
-## Режим 1: з живим запуском (~7–8 хв)
+## Режим 1: з живим запуском (~8–8,5 хв)
 
 | # | Час | Що відкрити / виконати | Що має бути видно |
 |---|---|---|---|
 | 1 | 0:00 | `README.md` | тема, «Коротко», таблиця результатів |
-| 2 | 0:40 | `diagrams/rendered/architecture.png` → `2pc_happy_path.png` | сервіси, координатор, дві фази |
-| 3 | 1:25 | `rm_state_machine.png` → `tm_state_machine.png` → `failure_model.png` | стани і збої |
-| 4 | 2:10 | `spec/TwoPhase.tla`: карта дій зверху, `RMPrepare`, `TMCommit`, `TMCrash`, `Consistency` (Ctrl+F) | код специфікації |
-| 5 | 3:00 | `properties_map.png` | S1–S5, L1–L4 |
-| 6 | 3:35 | `verification_pipeline.png` | TLC + Apalache |
-| 7 | 4:00 | `python scripts/run_one.py Full` (~4 с) | `NO ERROR`, `Різних станів: 28 832` |
-| 8 | 4:30 | `python scripts/run_one.py NoTMRecovery_Deadlock` (~1 с) → `generated_NoTMRecovery_Deadlock.png` | `ПОРУШЕННЯ`, 5 кроків, останній — `TMCrash` |
-| 9 | 5:15 | `python scripts/run_one.py Mutant` (~1 с) → `generated_Mutant.png` | `ПОРУШЕННЯ Consistency`, `payment=committed inventory=aborted` |
-| 10 | 5:50 | `inductive_invariant.png` → таблиця Apalache у `results/summary.md` | 15 × NoError, мутант — Error |
-| 11 | 6:45 | `README.md`, таблиця результатів | висновок |
+| 2 | 0:45 | `diagrams/rendered/architecture.png` → `2pc_happy_path.png` | сервіси, координатор, дві фази |
+| 3 | 1:35 | `rm_state_machine.png` → `tm_state_machine.png` → `failure_model.png` | стани і збої |
+| 4 | 2:30 | `spec/TwoPhase.tla`: карта дій зверху, `RMPrepare`, `TMCommit`, `TMCrash`, `Consistency` (Ctrl+F) | код специфікації |
+| 5 | 3:25 | `properties_map.png` | S1–S5, L1–L4 |
+| 6 | 3:50 | `verification_pipeline.png` | TLC + Apalache |
+| 7 | 4:15 | `python scripts/run_one.py Full` (~4 с) | `NO ERROR`, `Різних станів: 28 832` |
+| 8 | 4:50 | `python scripts/run_one.py NoTMRecovery_Deadlock` (~1 с) → `generated_NoTMRecovery_Deadlock.png` | `ПОРУШЕННЯ`, 5 кроків, останній — `TMCrash` |
+| 9 | 5:30 | `python scripts/run_one.py Mutant` (~1 с) → `generated_Mutant.png` | `ПОРУШЕННЯ Consistency`, `payment=committed inventory=aborted` |
+| 10 | 6:05 | `inductive_invariant.png` → таблиця Apalache у `results/summary.md` | 15 × NoError, мутант — Error |
+| 11 | 7:15 | `README.md`, таблиця результатів | висновок |
 
 Кожна команда `run_one.py` виконується до 10 секунд (більшість — 1–4 с). Контрприклади
 детерміновані: на парі буде та сама траса, що й у документації.
