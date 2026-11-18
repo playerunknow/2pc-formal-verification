@@ -27,7 +27,7 @@
    - `results/summary.md`.
 4. Збільшити шрифт термінала (на проекторі дрібне не видно): ~18–20 pt.
 
-## Режим 1: з живим запуском (~9,5 хв)
+## Режим 1: з живим запуском (~8,5 хв)
 
 | # | Час | Що відкрити / виконати | Що має бути видно |
 |---|---|---|---|
@@ -37,11 +37,10 @@
 | 4 | 2:30 | `spec/TwoPhase.tla`: карта дій зверху, `RMPrepare`, `TMCommit`, `TMCrash`, `Consistency` (Ctrl+F) | код специфікації |
 | 5 | 3:50 | `properties_map.png` | S1–S5, L1–L4 |
 | 6 | 4:20 | `verification_pipeline.png` | TLC + Apalache |
-| 7 | 4:40 | `python scripts/run_one.py Full` (~4 с) → таблиця TLC у `README.md` | `NO ERROR`, `Різних станів: 28 832`; у таблиці `Full_2` / `Full` / `Full_4`: 1 840 → 28 832 → 477 760 |
-| 8 | 5:55 | `python scripts/run_one.py NoTMRecovery_Deadlock` (~1 с) → `generated_NoTMRecovery_Deadlock.png` | `ПОРУШЕННЯ`, 5 кроків, останній — `TMCrash` |
-| 9 | 6:35 | `python scripts/run_one.py Mutant` (~1 с) → `generated_Mutant.png` | `ПОРУШЕННЯ Consistency`, `payment=committed inventory=aborted` |
-| 10 | 7:10 | `inductive_invariant.png` → таблиця Apalache у `results/summary.md` | 15 × NoError, мутант — Error |
-| 11 | 8:20 | `README.md`, таблиця результатів | висновок |
+| 7 | 4:45 | `python scripts/run_one.py Full` (~4 с) → таблиця TLC у `README.md` | `NO ERROR`, `Різних станів: 28 832`; у таблиці `Full_2` / `Full` / `Full_4`: 1 840 → 28 832 → 477 760 |
+| 8 | 6:00 | `python scripts/run_one.py NoTMRecovery_Deadlock` (~1 с) → `generated_NoTMRecovery_Deadlock.png` | `ПОРУШЕННЯ`, 5 кроків, останній — `TMCrash` |
+| 9 | 6:40 | `python scripts/run_one.py Mutant` (~1 с) → `generated_Mutant.png` | `ПОРУШЕННЯ Consistency`, `payment=committed inventory=aborted` |
+| 10 | 7:15 | екран не перемикати (залишається діаграма мутанта) | підсумок і висновок |
 
 Кожна команда `run_one.py` виконується до 10 секунд (більшість — 1–4 с). Контрприклади
 детерміновані: на парі буде та сама траса, що й у документації.
@@ -53,7 +52,7 @@
 
 Якщо немає Java, інтернету, часу або проектор «не дружить» із терміналом:
 
-- кроки 1–6 і 10–11 — ті самі;
+- кроки 1–6 і 10 — ті самі;
 - замість кроків 7–9 відкрити готові файли:
   - `results/summary.md` — рядки `Full`, `NoTMRecovery_Deadlock`, `Mutant`;
   - `results/tlc/Full.txt` — останні рядки: `Model checking completed. No error has been
